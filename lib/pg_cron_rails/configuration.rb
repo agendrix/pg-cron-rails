@@ -10,11 +10,11 @@ module PgCronRails
     attr_writer :connection_config
     attr_reader :connection
 
-    def initialize
+    def initialize(connection_config = nil)
       default_pg_cron_connection = ActiveRecord::Base.connection_db_config.configuration_hash.deep_dup
       default_pg_cron_connection[:database] = DEFAULT_PG_DATABASE_NAME
       @connection = PgCronRails::Adapters::PostgresqlAdapter.new(
-        ActiveRecord::Base.postgresql_connection(@connection_config || default_pg_cron_connection)
+        ActiveRecord::Base.postgresql_connection(connection_config || default_pg_cron_connection)
       )
     end
   end
@@ -24,6 +24,6 @@ module PgCronRails
   end
 
   def self.configure
-    yield configuration
+    @configuration = Configuration.new(yield configuration)
   end
 end

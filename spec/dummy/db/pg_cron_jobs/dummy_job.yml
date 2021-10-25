@@ -1,0 +1,3 @@
+dummy_job:
+  cron: "* * * * *"
+  statement: "SELECT pg_sleep(1)"

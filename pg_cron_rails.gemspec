@@ -32,7 +32,8 @@ Gem::Specification.new do |s|
   s.add_dependency "railties", ">= 6.0.0"
 
   s.add_development_dependency "bundler"
-  s.add_development_dependency "minitest", "~> 5.0"
   s.add_development_dependency "rake", "~> 13.0"
   s.add_development_dependency "rubocop", "~> 1.7"
+  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'pg'
 end
