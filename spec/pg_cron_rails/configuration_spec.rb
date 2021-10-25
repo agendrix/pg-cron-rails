@@ -11,7 +11,6 @@ module PgCronRails
     end
 
     it "must be possible to change database connection configuration" do
-      Rails.application.reloader.reload!
       PgCronRails.configure do |config|
         config.connection_config = ActiveRecord::Base.connection_db_config.configuration_hash.merge({ database: "dummy_development" })
       end
