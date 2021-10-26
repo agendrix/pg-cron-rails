@@ -11,7 +11,7 @@ module PgCronRails
     attr_reader :connection
 
     def initialize
-      set_connection      
+      set_connection
     end
 
     def set_connection
