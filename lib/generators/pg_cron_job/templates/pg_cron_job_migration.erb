@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class <%= migration_class_name %> < ActiveRecord::Migration<%= migration_version %>
   def up
     schedule_pg_cron_job "<%= file_name %>"
   end
 
-  down
+  def down
     unschedule_pg_cron_job "<%= file_name %>"
   end
 end
